@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91471A726E2DBC600F9604F /* AnnotationResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91471A626E2DBC600F9604F /* AnnotationResp.swift */; };
+		C93083E926CB3B9F002F26AF /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93083E826CB3B9F002F26AF /* cell.swift */; };
+		C93083EB26CC4F51002F26AF /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93083EA26CC4F51002F26AF /* InformationPostingViewController.swift */; };
+		C93083ED26CC53AB002F26AF /* AddLocationLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93083EC26CC53AB002F26AF /* AddLocationLinkViewController.swift */; };
 		C9C799D2262E238D004ABD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C799D1262E238D004ABD61 /* AppDelegate.swift */; };
 		C9C799D4262E238D004ABD61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C799D3262E238D004ABD61 /* SceneDelegate.swift */; };
-		C9C799D6262E238D004ABD61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C799D5262E238D004ABD61 /* ViewController.swift */; };
+		C9C799D6262E238D004ABD61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C799D5262E238D004ABD61 /* LoginViewController.swift */; };
 		C9C799D9262E238D004ABD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C799D7262E238D004ABD61 /* Main.storyboard */; };
 		C9C799DB262E2394004ABD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C799DA262E2394004ABD61 /* Assets.xcassets */; };
 		C9C799DE262E2394004ABD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C799DC262E2394004ABD61 /* LaunchScreen.storyboard */; };
+		C9C799F0262E25A6004ABD61 /* OnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C799EF262E25A6004ABD61 /* OnTheMapViewController.swift */; };
+		C9C799FC262E268E004ABD61 /* OnTheMapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C799FB262E268E004ABD61 /* OnTheMapTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C91471A626E2DBC600F9604F /* AnnotationResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationResp.swift; sourceTree = "<group>"; };
+		C93083E826CB3B9F002F26AF /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
+		C93083EA26CC4F51002F26AF /* InformationPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
+		C93083EC26CC53AB002F26AF /* AddLocationLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationLinkViewController.swift; sourceTree = "<group>"; };
 		C9C799CE262E238D004ABD61 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C799D1262E238D004ABD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9C799D3262E238D004ABD61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C9C799D5262E238D004ABD61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C9C799D5262E238D004ABD61 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9C799D8262E238D004ABD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9C799DA262E2394004ABD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9C799DD262E2394004ABD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9C799DF262E2394004ABD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9C799EF262E25A6004ABD61 /* OnTheMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapViewController.swift; sourceTree = "<group>"; };
+		C9C799FB262E268E004ABD61 /* OnTheMapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,45 @@
 		C9C799D0262E238D004ABD61 /* On the Map */ = {
 			isa = PBXGroup;
 			children = (
-				C9C799D1262E238D004ABD61 /* AppDelegate.swift */,
 				C9C799D3262E238D004ABD61 /* SceneDelegate.swift */,
-				C9C799D5262E238D004ABD61 /* ViewController.swift */,
+				C9C79A0F2630DB82004ABD61 /* Model */,
+				C9C799E7262E23EE004ABD61 /* Controller */,
+				C9C79A152630E9AD004ABD61 /* View */,
+			);
+			path = "On the Map";
+			sourceTree = "<group>";
+		};
+		C9C799E7262E23EE004ABD61 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9C799D1262E238D004ABD61 /* AppDelegate.swift */,
+				C9C799D5262E238D004ABD61 /* LoginViewController.swift */,
+				C9C799EF262E25A6004ABD61 /* OnTheMapViewController.swift */,
+				C9C799FB262E268E004ABD61 /* OnTheMapTableViewController.swift */,
+				C93083EA26CC4F51002F26AF /* InformationPostingViewController.swift */,
+				C93083EC26CC53AB002F26AF /* AddLocationLinkViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9C79A0F2630DB82004ABD61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9C799DF262E2394004ABD61 /* Info.plist */,
+				C93083E826CB3B9F002F26AF /* cell.swift */,
+				C91471A626E2DBC600F9604F /* AnnotationResp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9C79A152630E9AD004ABD61 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				C9C799D7262E238D004ABD61 /* Main.storyboard */,
 				C9C799DA262E2394004ABD61 /* Assets.xcassets */,
 				C9C799DC262E2394004ABD61 /* LaunchScreen.storyboard */,
-				C9C799DF262E2394004ABD61 /* Info.plist */,
 			);
-			path = "On the Map";
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C799D6262E238D004ABD61 /* ViewController.swift in Sources */,
+				C9C799D6262E238D004ABD61 /* LoginViewController.swift in Sources */,
+				C93083E926CB3B9F002F26AF /* cell.swift in Sources */,
+				C91471A726E2DBC600F9604F /* AnnotationResp.swift in Sources */,
 				C9C799D2262E238D004ABD61 /* AppDelegate.swift in Sources */,
+				C93083EB26CC4F51002F26AF /* InformationPostingViewController.swift in Sources */,
+				C9C799F0262E25A6004ABD61 /* OnTheMapViewController.swift in Sources */,
+				C93083ED26CC53AB002F26AF /* AddLocationLinkViewController.swift in Sources */,
+				C9C799FC262E268E004ABD61 /* OnTheMapTableViewController.swift in Sources */,
 				C9C799D4262E238D004ABD61 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "On the Map/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/On the Map/Model/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "On the Map/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/On the Map/Model/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
