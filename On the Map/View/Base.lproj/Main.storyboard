@@ -290,6 +290,9 @@
                                     <constraint firstAttribute="width" constant="60" id="IVT-qy-Epq"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Lho-Lo-78t">
+                                <rect key="frame" x="197" y="488" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XMG-mO-9GA"/>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
@@ -303,23 +306,26 @@
                             <constraint firstItem="M23-cN-adg" firstAttribute="centerX" secondItem="itm-bp-o3M" secondAttribute="centerX" id="SKR-l6-0Jg"/>
                             <constraint firstItem="M23-cN-adg" firstAttribute="leading" secondItem="XMG-mO-9GA" secondAttribute="leading" constant="30" id="T99-EB-X8E"/>
                             <constraint firstItem="xJL-QI-lBG" firstAttribute="top" secondItem="XMG-mO-9GA" secondAttribute="top" id="U2L-Ap-S4e"/>
+                            <constraint firstItem="Lho-Lo-78t" firstAttribute="top" secondItem="M23-cN-adg" secondAttribute="bottom" constant="25" id="X9O-Wt-bwU"/>
                             <constraint firstAttribute="trailing" secondItem="xJL-QI-lBG" secondAttribute="trailing" id="dAv-7t-O13"/>
                             <constraint firstItem="M23-cN-adg" firstAttribute="centerY" secondItem="itm-bp-o3M" secondAttribute="centerY" id="fyF-r7-3cM"/>
                             <constraint firstItem="6Az-Ls-ikw" firstAttribute="top" secondItem="N07-4O-CQA" secondAttribute="bottom" constant="40" id="hpA-X5-LoY"/>
                             <constraint firstItem="xJL-QI-lBG" firstAttribute="leading" secondItem="XMG-mO-9GA" secondAttribute="leading" id="jTj-Sh-VfF"/>
                             <constraint firstItem="xHO-rP-8W9" firstAttribute="top" secondItem="6Az-Ls-ikw" secondAttribute="bottom" constant="30" id="jaT-VD-uB4"/>
                             <constraint firstItem="N07-4O-CQA" firstAttribute="centerX" secondItem="itm-bp-o3M" secondAttribute="centerX" id="kA0-BQ-iN6"/>
+                            <constraint firstItem="Lho-Lo-78t" firstAttribute="centerX" secondItem="itm-bp-o3M" secondAttribute="centerX" id="m0r-Ye-NTX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="findLocationButton" destination="M23-cN-adg" id="eKo-d7-yYH"/>
+                        <outlet property="indicator" destination="Lho-Lo-78t" id="J79-Nj-OVT"/>
                         <outlet property="linkTF" destination="xHO-rP-8W9" id="2od-bh-0sQ"/>
                         <outlet property="locationTF" destination="6Az-Ls-ikw" id="P6a-cB-UAd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rd-bU-9os" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-919"/>
+            <point key="canvasLocation" x="392.75362318840581" y="-919.41964285714278"/>
         </scene>
         <!--Add Location Link View Controller-->
         <scene sceneID="dtF-lQ-BFJ">
@@ -422,7 +428,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="2" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="CvP-Me-tLw" customClass="cell" customModule="On_the_Map" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="2" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="CvP-Me-tLw" userLabel="Cell" customClass="Cell" customModule="On_the_Map" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CvP-Me-tLw" id="rul-DR-sxe">

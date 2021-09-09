@@ -4,7 +4,7 @@
 //
 //  Created by Nehal Jhala on 4/19/21.
 //
-
+import Foundation
 import UIKit
 
 class OnTheMapTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -14,72 +14,55 @@ class OnTheMapTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    var pins: [AnnotationResponse]! {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.pins
-    }
+    let client = UdacityClient()
     
     //setting tableView:
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if pins[0].results.count <= 100{
-            return pins[0].results.count
-        }
-        else {
-            return 100
-        }
+        return globalVars.studentLoc[0].results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! cell
-        let result = self.pins[0].results[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cell
+        let result = globalVars.studentLoc[0].results[(indexPath as NSIndexPath).row]
         cell.label1?.text = "\(result.firstName) \(result.lastName)"
         cell.label2?.text = "\(result.mediaURL)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var result = self.pins[0].results[(indexPath as NSIndexPath).row]
+        var result = globalVars.studentLoc[0].results[(indexPath as NSIndexPath).row]
         if !result.mediaURL.starts(with: "http"){
             result.mediaURL = "http://" + result.mediaURL
         }
         UIApplication.shared.open(URL(string: result.mediaURL)!, options: [:], completionHandler: nil)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = false
     }
     
-    
-    func requestLocation(completion: @escaping (AnnotationResponse)-> ()) {
-        let url = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt")!)
-        URLSession.shared.dataTask(with: url) {data, res, err in
-            if let data = data {
-                do {
-                    let aResponse = try JSONDecoder().decode(AnnotationResponse.self, from: data)
-                    completion(aResponse)
-                }catch let error {
-                    print("api error" + error.localizedDescription)
+    func fetchLocStudents(){
+        client.requestLocation() { (_ response: StudentLocation?, _ error: Error?, _ success: Bool) in
+            DispatchQueue.main.async {
+                if success == true{
+                    globalVars.studentLoc.removeAll()
+                    globalVars.studentLoc.append(response!)
+                    self.tableView.reloadData()
+                }
+                else{
+                    let alert = UIAlertController(title:"Unexpected Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
-        }.resume()
+        }
     }
     
     @IBAction func refreshTapped(_ sender: Any) {
-        requestLocation(){ (aResponse) in
-            DispatchQueue.main.async {
-                let object = UIApplication.shared.delegate
-                let appDelegate = object as! AppDelegate
-                appDelegate.pins.removeAll()
-                appDelegate.pins.append(aResponse)
-            }
-        }
-        self.tableView.reloadData()
+        fetchLocStudents()
     }
-    
     
     @IBAction func addButtonTapped(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -89,36 +72,12 @@ class OnTheMapTableViewController: UIViewController, UITableViewDelegate, UITabl
         return
     }
     
-    
     @IBAction func logoutTapped(_ sender: Any) {
-        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
-        request.httpMethod = "DELETE"
-        var xsrfCookie: HTTPCookie? = nil
-        let sharedCookieStorage = HTTPCookieStorage.shared
-        for cookie in sharedCookieStorage.cookies! {
-            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
-        }
-        if let xsrfCookie = xsrfCookie {
-            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
-        }
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-            if error != nil { // Handle error…
-                return
-            }
-            let range = (5..<data!.count)
-            let newData = data?.subdata(in: range) /* subset response data! */
-            print(String(data: newData!, encoding: .utf8)!)
-        }
-        task.resume()
-        
+        client.logginOut()
         //segue to loginViewController.
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "loginView") as! LoginViewController
-        nextViewController.modalPresentationStyle = .fullScreen
-        self.present(nextViewController, animated:true, completion:nil)
-        return
+        self.dismiss(animated: true, completion: nil)
     }
     
-    
 }
+
+

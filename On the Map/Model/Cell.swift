@@ -1,5 +1,5 @@
 //
-//  cell.swift
+//  Cell.swift
 //  On the Map
 //
 //  Created by Nehal Jhala on 8/16/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class cell: UITableViewCell {
+class Cell: UITableViewCell {
 
     @IBOutlet weak var loginPinButton: UIButton!
     @IBOutlet weak var label1: UILabel!    
@@ -15,12 +15,10 @@ class cell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
 }
