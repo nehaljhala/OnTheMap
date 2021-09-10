@@ -49,11 +49,14 @@ class UdacityClient {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            let range = (5..<data!.count)
-            let newData = data?.subdata(in: range) /* subset response data! */
+            if let error = error {
+                completion(nil, error, false)
+            }
             if let data = data {
+                let range = (5..<data.count)
+                let newData = data.subdata(in: range) /* subset response data! */
                 do {
-                    let resp = try JSONDecoder().decode(StudentDetails.self, from: newData!)
+                    let resp = try JSONDecoder().decode(StudentDetails.self, from: newData)
                     completion(resp, nil, true)
                 }catch let error {
                     print("api error" + error.localizedDescription)

@@ -40,6 +40,8 @@ class OnTheMapViewController: UIViewController,  MKMapViewDelegate {
     
     //annotations:
     func showAnnotations(_ response: StudentLocation?){
+        annotations.removeAll()
+        mapView.removeAnnotations(mapView.annotations)
         for dictionary in response!.results {
             let lat = CLLocationDegrees(dictionary.latitude)
             let long = CLLocationDegrees(dictionary.longitude)

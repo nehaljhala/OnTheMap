@@ -74,7 +74,7 @@ class AddLocationLinkViewController: UIViewController,  MKMapViewDelegate {
                     return
                 }
                 else{
-                    let alert = UIAlertController(title:"Unexpected Error", message: retError?.localizedDescription, preferredStyle: .alert)
+                        let alert = UIAlertController(title:"Unexpected Error", message: retError?.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -85,15 +85,17 @@ class AddLocationLinkViewController: UIViewController,  MKMapViewDelegate {
     
     @IBAction func finishTapped(_ sender: Any) {
         client.getStudentDetails(){ (_ response: StudentDetails?, _ retError: Error?,_ success: Bool) in
-            if success == true{
-                globalVars.studentDetails.append(response!)
-                self.postStuLoc()
-            }
-            else{
-                let alert = UIAlertController(title:"Unexpected Error", message: retError?.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                }))
-                self.present(alert, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                if success == true{
+                    globalVars.studentDetails.append(response!)
+                    self.postStuLoc()
+                }
+                else{
+                    let alert = UIAlertController(title:"Unexpected Error", message: retError?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }    

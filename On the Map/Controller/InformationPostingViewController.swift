@@ -19,6 +19,9 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate {
     var lat = CLLocationDegrees(0)
     var lon = CLLocationDegrees(0)    
     
+    override func viewDidLoad() {
+        indicator.hidesWhenStopped = true
+    }
     override func viewWillAppear(_ animated: Bool) {
         subscribeToKeyboardNotifications()
         indicator.isHidden = true
@@ -45,6 +48,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate {
         locationTF.resignFirstResponder()
         linkTF.resignFirstResponder()
         indicator.isHidden = false
+        findLocationButton.isHidden = true
         indicator.startAnimating()
         if (linkTF.text!).isEmpty == false || (locationTF.text!).isEmpty == false {
             let address = locationTF.text!
